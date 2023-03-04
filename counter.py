@@ -30,7 +30,9 @@ def openRoot(root):
     for path, _, files in os.walk(root):
         for name in files:
             if name.endswith(".txt"):
+                print("---STATISTICS---")
                 countFiles(os.path.join(path, name))
+                print("\n\n")
 
 
 openRoot(os.path.dirname(os.path.abspath(__file__)))
