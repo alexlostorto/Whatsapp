@@ -4,9 +4,9 @@ The program reads the file with the exported Whatsapp messages and counts the nu
 
 ```python
 # Example in console
-Alex: 5672
-Jane: 6673
-Total messages: 12345
+Alex: 5,672
+Jane: 6,673
+Total messages: 12,345
 ```
 
 ## How it Works

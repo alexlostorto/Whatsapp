@@ -21,9 +21,9 @@ def countFiles(path):
                     messages[username] = 1
 
     for username, number in messages.items():
-        print(f"{username}: {number}")
+        print(f"{username}: {number:,}")
 
-    print(f"Total messages: {totalMessages}")
+    print(f"Total messages: {totalMessages:,}")
 
 
 def openRoot(root):
