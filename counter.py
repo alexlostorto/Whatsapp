@@ -28,10 +28,10 @@ def countFiles(path):
 
 def openRoot(root):
     for path, _, files in os.walk(root):
-        for name in files:
-            if name.endswith(".txt"):
+        for file in files:
+            if file.endswith(".txt"):
                 print("---STATISTICS---")
-                countFiles(os.path.join(path, name))
+                countFiles(os.path.join(path, file))
                 print("\n\n")
 
 
