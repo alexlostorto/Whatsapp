@@ -31,8 +31,11 @@ def countMessages(path, logDate=False):
                 else:
                     dailyMessages[username] = 1
                 if ":".join(line.split(':', 2)[:2])[:10] != date:
-                    date = ":".join(line.split(':', 2)[:2])[:10]
+                    if date == '':
+                        date = ":".join(line.split(':', 2)[:2])[:10]
+                        continue
                     print(date)
+                    date = ":".join(line.split(':', 2)[:2])[:10]
                     for username, number in dailyMessages.items():
                         print(f"{username}: {number:,}")
                     dailyMessages = {}
