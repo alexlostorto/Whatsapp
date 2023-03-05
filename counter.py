@@ -40,6 +40,13 @@ def countMessages(path, logDate=False):
                         print(f"{username}: {number:,}")
                     dailyMessages = {}
                     print()
+        if logDate:
+            print(date)
+            date = ":".join(line.split(':', 2)[:2])[:10]
+            for username, number in dailyMessages.items():
+                print(f"{username}: {number:,}")
+            dailyMessages = {}
+            print()
 
     if logDate:
         print("\n---TOTAL---")
