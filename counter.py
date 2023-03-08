@@ -102,5 +102,7 @@ def openRoot(root):
         countMessages(os.path.join(txtFiles[file-1][0], txtFiles[file-1][1]), True)
     print("\n\n")
 
+    input("Press ENTER to exit")
+
 
 openRoot(os.path.dirname(os.path.abspath(__file__)))
