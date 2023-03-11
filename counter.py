@@ -7,7 +7,7 @@ def countMessages(path, logDate=False):
 
     messages = {}
 
-    regex = "\d{2}\/\d{2}\/\d{4},{1} {1}\d{2}:{1}\d{2} {1}-{1} {1}"
+    regex = "\d{2}\/\d{2}\/\d{4}, \d{2}:\d{2} - "
 
     with open(path, encoding="utf8") as textfile:
         date = ''
