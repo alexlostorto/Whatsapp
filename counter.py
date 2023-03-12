@@ -66,10 +66,10 @@ def countMessages(path, logDate=False, textCounter=False):
 
         if logDate:
             print(date)
-            date = ":".join(line.split(':', 2)[:2])[:10]
             for username, number in dailyMessages.items():
                 print(f"{username}: {number:,}")
-            dailyMessages = {}
+            for username, number in dailyTextCounter.items():
+                print(f"Times {username} said '{textToFind}': {number:,}")
             print()
 
     if logDate:
