@@ -23,19 +23,13 @@ Total messages: 12,345
 git clone https://github.com/alexlostorto/Whatsapp
 ```
 
-2. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-3. Run main.py
+2. Run main.py
 
 ```bash
 python main.py
 ```
 
-4. Star the repo 😄
+3. Star the repo 😄
 
 ## 📋 How it Works
 
