@@ -1,5 +1,11 @@
 <h1 align="center">Whatsapp</h1>
 
+<p align="center">
+  <b>Display Whatsapp message statistics for exported chats.</b>
+</p>
+
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/alexlostorto/Whatsapp?style=for-the-badge&message=Code+Climate&labelColor=222222&logo=Code+Climate&logoColor=FFFFFF)](https://codeclimate.com/github/alexlostorto/Whatsapp/maintainability)
+
 The program reads the file with the exported Whatsapp messages and counts the number of messages in the file.
 
 ```python
@@ -9,7 +15,29 @@ Jane: 6,673
 Total messages: 12,345
 ```
 
-## How it Works
+## ⚡ Quick setup
+
+1. Clone the repo
+
+```bash
+git clone https://github.com/alexlostorto/Whatsapp
+```
+
+2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Run main.py
+
+```bash
+python main.py
+```
+
+4. Star the repo 😄
+
+## 📋 How it Works
 
 1. Get the parent directory.
 
@@ -52,7 +80,7 @@ with open(path, encoding="utf8") as textfile:
                 messages[username] = 1
 ```
 
-## Credits
+## 📜 Credits
 
 Everything is coded by Alex lo Storto
 
