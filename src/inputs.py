@@ -1,4 +1,4 @@
-def getInput(array, question):
+def integerInput(array, question):
     userInput = input(question)
 
     while True:
@@ -11,10 +11,8 @@ def getInput(array, question):
             userInput = input(question)
             continue
         else:
-            # Chooses file
             print()
-            userInput = int(userInput)
-            return userInput
+            return int(userInput)
 
 
 def yesNo(question):
@@ -40,21 +38,21 @@ def chooseFile(files):
     for i in range(len(files)):
         print(f"{i+1}) {files[i][1]}")
 
-    file = getInput(files, "Choose which file you want to use: ")
+    file = integerInput(files, "Choose which file you want to use: ")
     print(f"You chose '{files[file-1][1]}'\n")
 
     return file
 
 
 def chooseFunction():
-    options = [
+    functions = [
         "displayDays",
         "textCounter"
     ]
 
     parameters = []
 
-    for i in range(len(options)):
-        parameters.append(yesNo(f"Do you want to use {options[i]}: "))
+    for i in range(len(functions)):
+        parameters.append(yesNo(f"Do you want to use {functions[i]}: "))
 
     return parameters

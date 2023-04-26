@@ -11,9 +11,9 @@ def main():
     txtFiles = getChats(directory)
     file = chooseFile(txtFiles)
     function = chooseFunction()
-    path = os.path.join(txtFiles[file-1][0], txtFiles[file-1][1])
+    filePath = os.path.join(txtFiles[file-1][0], txtFiles[file-1][1])
 
-    countMessages(path, *function)
+    countMessages(filePath, *function)
     input("\nPress ENTER to exit")
 
 
