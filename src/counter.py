@@ -4,19 +4,17 @@ import re
 
 REGEX = "\d{2}\/\d{2}\/\d{4}, \d{2}:\d{2} - "  # Eg: '18/02/2023, 18:47 - '
 
-totalMessages = 0
 date = ''
+totalMessages = 0
+totalTextCount = 0
+messages = {}
+textCount = {}
+dailyMessages = {}
+dailyTextCounter = {}
 
 
-def countMessages(path, logDate=False, textCounter=False):
-    totalTextCount = 0
-
-    messages = {}
-    textCount = {}
-    dailyMessages = {}
-    dailyTextCounter = {}
-
-    if textCounter:
+def countMessages(path, countOptions):
+    if countOptions['text-count']:
         textToFind = input("Text to count: ")
 
     print("\n\n---STATISTICS---")
@@ -28,24 +26,19 @@ def countMessages(path, logDate=False, textCounter=False):
             if username is None or message is None:
                 continue
 
+            # Message counter
             updateMessageCounter(username, messages)
 
             # Text counter
-            if textCounter and textToFind.lower() in message.lower():
-                totalTextCount += 1
-                updateMessageCounter(username, textCount)
-
-                if logDate:
-                    updateMessageCounter(username, dailyTextCounter)
+            if countOptions['text-count']:
+                countText(countOptions, username, message, textToFind)
 
             # Daily message counter
-            if logDate:
-                dailyMessages, dailyTextCounter = updateDailyMessages(line, username, textToFind, dailyMessages, dailyTextCounter)
+            if countOptions['daily-messages']:
+                updateDailyMessages(line, username, textToFind)
 
-        if logDate:
-            printStatistics(username, textToFind, dailyMessages, dailyTextCounter)
-
-    if logDate:
+    if countOptions['daily-messages']:
+        printStatistics(username, textToFind, dailyMessages, dailyTextCounter)
         print("\n---TOTAL---")
     for username, number in messages.items():
         print(f"{username}: {number:,}")
@@ -54,8 +47,19 @@ def countMessages(path, logDate=False, textCounter=False):
 
     print(f"Total messages: {totalMessages:,}")
 
-    if textCounter:
+    if countOptions['text-count']:
         print(f"Total times '{textToFind}' was said: {totalTextCount:,}")
+
+
+def countText(countOptions, username, message, textToFind):
+    global totalTextCount
+
+    if textToFind.lower() in message.lower():
+        totalTextCount += 1
+        updateMessageCounter(username, textCount)
+
+        if countOptions['daily-messages']:
+            updateMessageCounter(username, dailyTextCounter)
 
 
 def getMessage(line):
@@ -73,8 +77,8 @@ def getMessage(line):
         return [None, None]
 
 
-def updateDailyMessages(line, username, textToFind, dailyMessages, dailyTextCounter):
-    global date
+def updateDailyMessages(line, username, textToFind):
+    global date, dailyMessages, dailyTextCounter
 
     updateMessageCounter(username, dailyMessages)
 

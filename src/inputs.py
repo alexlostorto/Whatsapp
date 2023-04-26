@@ -21,15 +21,13 @@ def yesNo(question):
     while True:
         # Check input is acceptable
         if userInput == '':
-            print(f"Don't leave me empty!\n")
+            print(f"Don't leave me empty!")
         elif userInput.lower() in ['y', 'ye', 'yes', 'yeah']:
-            print()
             return True
         elif userInput.lower() in ['n', 'no', 'nop', 'nope']:
-            print()
             return False
         else:
-            print(f"Write yes or no.\n")
+            print(f"Write yes or no.")
 
         userInput = input(question)
 
@@ -44,15 +42,15 @@ def chooseFile(files):
     return file
 
 
-def chooseFunction():
-    functions = [
-        "displayDays",
-        "textCounter"
-    ]
-
+def chooseOptions(countOptions):
+    options = list(countOptions.keys())
     parameters = []
 
-    for i in range(len(functions)):
-        parameters.append(yesNo(f"Do you want to use {functions[i]}: "))
+    print("---OPTIONS---")
+
+    for i in range(len(options)):
+        userInput = yesNo(f"Do you want to use {options[i]}: ")
+        parameters.append(userInput)
+        countOptions[options[i]] = userInput
 
     return parameters
